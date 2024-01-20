@@ -1,3 +1,11 @@
+import { signOut, useSession } from 'next-auth/react';
+
 export default function HomePage() {
-  return <h1>Oi</h1>;
+  const { data } = useSession();
+  return (
+    <pre>
+      {JSON.stringify(data, null, 2)}
+      <button onClick={() => signOut()}>Deslogar</button>
+    </pre>
+  );
 }

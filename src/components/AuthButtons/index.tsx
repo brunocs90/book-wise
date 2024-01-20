@@ -1,4 +1,4 @@
-//import { signIn } from "next-auth/react";
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { AuthButton, Container } from './styles';
 
@@ -16,9 +16,11 @@ export const AuthButtons = ({ canGuest, callbackUrl = '/' }: AuthButtonsProps) =
       return;
     }
 
-    // signIn(provider, {
-    //   callbackUrl
-    // })
+    console.log('provider', provider);
+
+    signIn(provider, {
+      callbackUrl,
+    });
   };
   return (
     <Container>
